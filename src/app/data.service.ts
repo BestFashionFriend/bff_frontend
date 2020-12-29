@@ -5,8 +5,9 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class DataService {
-  //serverUrl='https://authoapi.herokuapp.com';
-serverUrl='http://localhost:3000'
+  
+  serverUrl= 'https://bestfashionfriend.herokuapp.com';
+//serverUrl='http://localhost:3000'
   constructor(private http: HttpClient) { }
   getBlouses(){
     return this.http.get(this.serverUrl+'/blouse');

@@ -8,7 +8,8 @@ import { HttpClient } from '@angular/common/http';
 export class CartService {
   cartItems = [];
    id;
-  path='http://localhost:3000'
+  path= 'https://bestfashionfriend.herokuapp.com';
+  //path='http://localhost:3000'
   constructor(private authservice:AuthService,private http:HttpClient) { }
   sendCartItems(item)
   {
