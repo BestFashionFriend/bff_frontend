@@ -8,8 +8,8 @@ import { Observable, of } from 'rxjs';
 export class AuthService {
   Username = 'username';
   id: any;
-  //path= 'https://authoapi.herokuapp.com';
-  path = 'http://localhost:3000'
+  path= 'https://bestfashionfriend.herokuapp.com';
+  //path = 'http://localhost:3000'
   TOKEN_KEY = 'token'
 
   constructor(private http: HttpClient) { }
