@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService } from '../cart.service';
 import { DataService } from '../data.service';
+import {AuthService}from '../auth.service';
 
 @Component({
   selector: 'app-cart',
@@ -9,11 +10,23 @@ import { DataService } from '../data.service';
 })
 export class CartComponent implements OnInit {
  
-  constructor(private cart: CartService,private data: DataService) { }
-cartItems;
+  constructor(private cart: CartService,private data: DataService,private auth: AuthService) { }
+cartItems=[];
 sum;
+id;
+manuFiledata:any={};
   ngOnInit() {
-    this.cartItems=this.cart.cartItems;
+    
+    
+    this.auth.getId().subscribe(d => {
+      this.id=d;
+     // console.log(`id in cart`+this.id);
+      this.auth.getItems(this.id).subscribe(d => {
+        this.manuFiledata = d;
+       // console.log(`file manudata in pdf `+(this.manuFiledata));
+        this.cartItems=(JSON.parse(this.manuFiledata));
+      });
+    });
   }
 
 remove(indx) {

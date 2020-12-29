@@ -18,6 +18,7 @@
                         <img src="{{c.front}}" width="100px" height="100px" class="img-thumbnail">
                     </div>
                     <div class="col-md-8">
+                        <table>
                         <h5 style="color: darkslategray;">{{c.name}}</h5>
                         
                         <small><s> &#x20b9;{{c.price+300}}/-</s></small>
@@ -29,6 +30,7 @@
                              <i class="fas fa-star"></i>
                              <i class="far fa-star"></i>
                          </h6>
+                        </table>
                     </div>
                     <div class="col-md-2 text-right">
                         <i class="fas fa-trash" (click)="remove(i)"></i> 
@@ -39,7 +41,9 @@
         <div class="col-md-4">
             <div class="card">
                 <h3 style="text-align: center;">Order Summary</h3>
-            
+            <table>
+                
+            </table>
             <button class="btn btn-success" (click)="checkOut()" style="font-size: 10px;">PlaceOrder</button>
  
             </div>

@@ -22,7 +22,8 @@ export class BlousesComponent implements OnInit {
     if(this.authservice.isAuthenticated)
     {
      var blouse = this.blouses[idx];
-   this.cart.cartItems.push(blouse);
+   //this.cart.cartItems.push(blouse);
+   this.cart.sendCartItems(blouse);
    alert('added one item');
 
     }
