@@ -20,10 +20,10 @@ manuFiledata:any={};
     
     this.auth.getId().subscribe(d => {
       this.id=d;
-     // console.log(`id in cart`+this.id);
+     console.log(`id in cart`+this.id);
       this.auth.getItems(this.id).subscribe(d => {
         this.manuFiledata = d;
-       // console.log(`file manudata in pdf `+(this.manuFiledata));
+        console.log(`file manudata in pdf `+(this.manuFiledata));
         this.cartItems=(JSON.parse(this.manuFiledata));
       });
     });

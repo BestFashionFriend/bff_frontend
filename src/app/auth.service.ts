@@ -8,8 +8,8 @@ import { Observable, of } from 'rxjs';
 export class AuthService {
   Username = 'username';
   id: any;
-  path= 'https://bestfashionfriend.herokuapp.com';
-  //path = 'http://localhost:3000'
+  //path= 'https://bestfashionfriend.herokuapp.com';
+  path = 'http://localhost:3000'
   TOKEN_KEY = 'token'
 
   constructor(private http: HttpClient) { }
@@ -62,7 +62,7 @@ export class AuthService {
   sendItems(item) {
     this.getId().subscribe(d => {
       this.id = d;
-      // console.log(`id in sendItems`+this.id);
+       console.log(`id in sendItems`+this.id);
       this.http.post<any>(this.path + `/cart/${this.id}`, item).subscribe((res) => {
         alert('Item added in DB');
       }),
@@ -73,7 +73,7 @@ export class AuthService {
 
   }
   getItems(id) {
-    //console.log(`id in getItems` + id);
+    console.log(`id in getItems` + id);
     return this.http.get<any>(this.path + `/cart/${id}`)
   }
 
