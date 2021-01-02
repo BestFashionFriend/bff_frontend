@@ -50,11 +50,17 @@ stripeTest: FormGroup;
 
 constructor(private http : HttpClient,private fb: FormBuilder, private stripeService: StripeService,private cart:CartService ) {}
 cartItems=[];
+total=0;
+i;
 ngOnInit(): void {
   this.stripeTest = this.fb.group({
     name: ['', [Validators.required]]
   });
-
+  this.cartItems=this.cart.cartItems;
+  for(this.i=0;this.i<this.cartItems.length;this.i++)
+  {
+    this.total =this.total+this.cartItems[this.i].price;
+  }
 }
 
 createToken(): void {
@@ -65,9 +71,9 @@ createToken(): void {
       if (result.token) {
         // Use the token
         console.log(result.token.id);
+        
       
-      
-this.http.post("http://localhost:3000/payme",{
+this.http.post(`http://localhost:3000/payme/${this.total}`,{
   token : result.token.id
 }).subscribe(
 (res)=>{
@@ -86,8 +92,6 @@ this.http.post("http://localhost:3000/payme",{
       }
     });
 }
-remove(indx) {
-  this.cart.cartItems.splice(indx, 1);
-}
+
 }
 

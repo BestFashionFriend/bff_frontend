@@ -61,41 +61,77 @@
         Order Summary
       </mat-panel-title>
       <mat-panel-description>
-        Summary of Items
-        <mat-icon>home</mat-icon>
+        Summary of Ordered Items
+        <mat-icon>favorite_border</mat-icon>
       </mat-panel-description>
     </mat-expansion-panel-header>
-    <div class="col-lg-4">
-      <div class="card p-1 mb-3" *ngFor="let c of cartItems;let i=index">
-        <div class="row">
-          <div class="col-md-2 ">
-            <img src="{{c.front}}" width="100px" height="100px" class="img-thumbnail">
-          </div>
-          <div class="col-md-8">
-            <table>
-              <h5 style="color: darkslategray;">{{c.name}}</h5>
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="card p-1 mb-3" *ngFor="let c of cartItems;let i=index">
+          <div class="row">
+            <div class="col-md-4 ">
+              <img src="{{c.front}}" width="100px" height="100px" class="img-thumbnail">
+            </div>
+            <div class="col-md-8">
+              <table>
+                <h5 style="color: darkslategray;">{{c.name}}</h5>
 
-              <small><s> &#x20b9;{{c.price+300}}/-</s></small>
-              <h6 style="color: blueviolet;"> &#x20b9;{{c.price}}</h6>
-              <h6 style="text-align: left;color:yellowgreen">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="far fa-star"></i>
-              </h6>
-            </table>
-          </div>
-          <div class="col-md-2 text-right">
-            <i class="fas fa-trash" (click)="remove(i)"></i>
+                <small><s> &#x20b9;{{c.price+300}}/-</s></small>
+                <h6 style="color: blueviolet;"> &#x20b9;{{c.price}}</h6>
+                <h6 style="text-align: left;color:yellowgreen">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="far fa-star"></i>
+                </h6>
+              </table>
+            </div>
           </div>
         </div>
       </div>
+      <div class="col-sm-6">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6">
+              <span class="list">Price({{cartItems.length}} item(s))</span>
+            </div>
+            <div class="col-md-6">
+              <span class="list">{{total}}</span>
+            </div>
+            <br>
+            <br>
+            <div class="col-md-6">
+              <span class="list">Delivery Charges</span>
+            </div>
+            <div class="col-md-6">
+              <span class="list">50/-</span>
+            </div>
+            <br>
+            <br>
+            <div class="col-md-6">
+              <span class="list">Delivery Charges</span>
+            </div>
+            <div class="col-md-6">
+              <span class="list">100/-</span>
+            </div>
+            <br>
+            <br>
+            <div class="col-md-6">
+              <span class="list"><b>Total Payable</b></span>
+            </div>
+            <div class="col-md-6">
+              <span class="list"><b>{{total+50}}/-</b></span>
+            </div>
+            
+          </div>
+        </div>
       </div>
-      <mat-action-row>
-        <button mat-button color="warn" (click)="prevStep()">Previous</button>
-        <button mat-button color="primary" (click)="nextStep()">Next</button>
-      </mat-action-row>
+    </div>
+    <mat-action-row>
+      <button mat-button color="warn" (click)="prevStep()">Previous</button>
+      <button mat-button color="primary" (click)="nextStep()">Next</button>
+    </mat-action-row>
   </mat-expansion-panel>
 
   <mat-expansion-panel [expanded]="step === 3" (opened)="setStep(3)" hideToggle>
