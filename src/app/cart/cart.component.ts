@@ -40,7 +40,12 @@ remove(indx) {
 
   totalamount()
   {
-    
+    let i,total=0;
+    for(i=0;i<this.cartItems.length;i++)
+    {
+      total =this.cartItems[i].price;
+    }
+    console.log(total);
   }
   
 
