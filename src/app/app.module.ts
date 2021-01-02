@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule , HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
-import {FormsModule} from '@angular/forms';
+import {FormsModule,ReactiveFormsModule} from '@angular/forms';
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
 import { HomeComponent } from './home/home.component';
@@ -32,7 +32,8 @@ import { CartComponent } from './cart/cart.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatBadgeModule} from '@angular/material/badge';
 import {MatIconModule} from '@angular/material/icon';
-
+import { NgxStripeModule } from 'ngx-stripe';
+import { PaymentComponent } from './payment/payment.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -55,7 +56,8 @@ import {MatIconModule} from '@angular/material/icon';
     LoginComponent,
     SignupComponent,
     ProfileComponent,
-    CartComponent
+    CartComponent,
+    PaymentComponent
   ],
   imports: [
     BrowserModule,
@@ -66,7 +68,10 @@ import {MatIconModule} from '@angular/material/icon';
     FlashMessagesModule.forRoot(),
     BrowserAnimationsModule,
     MatBadgeModule,
-    MatIconModule
+    MatIconModule,
+    ReactiveFormsModule,
+    NgxStripeModule.forRoot('pk_test_51I4nk6A50Rsn1srPsJaqhn7SwTXX4y0xaU9rOfanl2IwO8ynSbRfqoUzcpIky4iY6hKViW2eqzqDk3vp2MDkqDhh00EdHMdExv')
+    
   ],
   providers: [ApiService,AuthService,{
     provide:HTTP_INTERCEPTORS,

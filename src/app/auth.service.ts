@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
+import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root'
 })
@@ -12,7 +12,7 @@ export class AuthService {
   path = 'http://localhost:3000'
   TOKEN_KEY = 'token'
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router) { }
   get token() {
     return localStorage.getItem(this.TOKEN_KEY)
   }
@@ -24,16 +24,16 @@ export class AuthService {
   logout() {
     localStorage.removeItem(this.TOKEN_KEY);
     localStorage.removeItem('username');
+    this.router.navigate(['/login']);
   }
 
   sendRegistrationData(registerData) {
     this.http.post<any>(this.path + '/register', (registerData)).subscribe(res => {
-      //console.log(res);
       alert('Registration Success');
-      localStorage.setItem('token', res.token);
     }),
     (error) => {
       alert('Registration Failed');
+      this.router.navigate(['/register']);
     }
   }
 
@@ -46,6 +46,7 @@ export class AuthService {
     }),
       (error) => {
         alert('Invalid Username or password');
+        this.router.navigate(['/login']);
       }
   }
 
@@ -63,18 +64,16 @@ export class AuthService {
     this.getId().subscribe(d => {
       this.id = d;
        console.log(`id in sendItems`+this.id);
-      this.http.post<any>(this.path + `/cart/${this.id}`, item).subscribe((res) => {
+      this.http.post<any>(this.path + `/carts/${this.id}`, item).subscribe((res) => {
         alert('Item added in DB');
       }),
         (error) => {
           alert('Items did not get added');
         }
     })
-
   }
   getItems(id) {
     console.log(`id in getItems` + id);
     return this.http.get<any>(this.path + `/cart/${id}`)
   }
-
 }
