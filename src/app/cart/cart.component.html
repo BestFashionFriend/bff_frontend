@@ -19,21 +19,21 @@
                     </div>
                     <div class="col-md-8">
                         <table>
-                        <h5 style="color: darkslategray;">{{c.name}}</h5>
-                        
-                        <small><s> &#x20b9;{{c.price+300}}/-</s></small>
-                        <h6 style="color: blueviolet;"> &#x20b9;{{c.price}}</h6>
-                        <h6 style="text-align: left;color:yellowgreen">
-                            <i class="fas fa-star"></i>
-                             <i class="fas fa-star"></i>
-                             <i class="fas fa-star"></i>
-                             <i class="fas fa-star"></i>
-                             <i class="far fa-star"></i>
-                         </h6>
+                            <h5 style="color: darkslategray;">{{c.name}}</h5>
+
+                            <small><s> &#x20b9;{{c.price+300}}/-</s></small>
+                            <h6 style="color: blueviolet;"> &#x20b9;{{c.price}}</h6>
+                            <h6 style="text-align: left;color:yellowgreen">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </h6>
                         </table>
                     </div>
                     <div class="col-md-2 text-right">
-                        <i class="fas fa-trash" (click)="remove(i)"></i> 
+                        <i class="fas fa-trash" (click)="remove(i)"></i>
                     </div>
                 </div>
             </div>
@@ -41,12 +41,32 @@
         <div class="col-md-4">
             <div class="card">
                 <h3 style="text-align: center;">Order Summary</h3>
-            <table>
-                
-            </table>
-            <button class="btn btn-success" (click)="checkOut()" style="font-size: 10px;">PlaceOrder</button>
- 
+                <div class="price"  >
+                    <table>
+                        <tr><td><p>Price({{cartItems.length}} item(s))</p></td>
+                            <td ><p>{{total}}</p></td>
+                        </tr>
+                        <tr>
+                            <td><p>Discount</p></td>
+                            <td><p>-50/-</p></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>Delivery Charges</p>
+                            </td>
+                            <td><p>+100/-</p></td>
+                        </tr>
+                        <tr>
+                            <th><p>Total Amount</p></th>
+                            <th>{{total+50}}/-</th>
+                        </tr>
+                    </table>
+                    
+                </div>
+               
             </div>
-       </div>
+            <button class="btn btn-success" (click)="checkOut()" style="font-size: 10px;">PlaceOrder</button>
+
+        </div>
     </div>
 </div>

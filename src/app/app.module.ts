@@ -33,7 +33,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatBadgeModule} from '@angular/material/badge';
 import {MatIconModule} from '@angular/material/icon';
 import { NgxStripeModule } from 'ngx-stripe';
-import { PaymentComponent } from './payment/payment.component'
+import { PaymentComponent } from './payment/payment.component';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatButtonModule} from '@angular/material/button';
+import {MatFormFieldModule} from '@angular/material/form-field';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -70,6 +74,9 @@ import { PaymentComponent } from './payment/payment.component'
     MatBadgeModule,
     MatIconModule,
     ReactiveFormsModule,
+    MatExpansionModule,
+    MatButtonModule,
+    MatFormFieldModule,
     NgxStripeModule.forRoot('pk_test_51I4nk6A50Rsn1srPsJaqhn7SwTXX4y0xaU9rOfanl2IwO8ynSbRfqoUzcpIky4iY6hKViW2eqzqDk3vp2MDkqDhh00EdHMdExv')
     
   ],

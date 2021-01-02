@@ -16,6 +16,7 @@ import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { ProfileComponent } from './profile/profile.component';
 import { CartComponent } from './cart/cart.component';
+import { PaymentComponent } from './payment/payment.component';
 
 const routes: Routes = [
   {path:'',component:HomeComponent},
@@ -33,7 +34,8 @@ const routes: Routes = [
   {path:'signup',component:SignupComponent},
   {path:'login',component:LoginComponent},
   {path:'profile',component:ProfileComponent},
-  {path:'cart',component:CartComponent}
+  {path:'cart',component:CartComponent},
+  {path:'payment',component:PaymentComponent}
 
 ];
 

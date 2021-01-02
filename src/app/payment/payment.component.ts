@@ -1,6 +1,6 @@
 import { Component, OnInit,ViewChild} from '@angular/core';
 import { FormGroup, FormBuilder, Validators,ReactiveFormsModule } from '@angular/forms';
- 
+import { CartService } from '../cart.service';
 import { StripeService, StripeCardComponent } from 'ngx-stripe';
 import {
   StripeCardElementOptions,
@@ -13,6 +13,19 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./payment.component.css']
 })
 export class PaymentComponent implements OnInit {
+  step = 0;
+
+  setStep(index: number) {
+    this.step = index;
+  }
+
+  nextStep() {
+    this.step++;
+  }
+
+  prevStep() {
+    this.step--;
+  }
 @ViewChild(StripeCardComponent) card: StripeCardComponent;
 cardOptions: StripeCardElementOptions = {
   style: {
@@ -35,12 +48,13 @@ elementsOptions: StripeElementsOptions = {
 
 stripeTest: FormGroup;
 
-constructor(private http : HttpClient,private fb: FormBuilder, private stripeService: StripeService) {}
-
+constructor(private http : HttpClient,private fb: FormBuilder, private stripeService: StripeService,private cart:CartService ) {}
+cartItems=[];
 ngOnInit(): void {
   this.stripeTest = this.fb.group({
     name: ['', [Validators.required]]
   });
+
 }
 
 createToken(): void {
@@ -72,6 +86,8 @@ this.http.post("http://localhost:3000/payme",{
       }
     });
 }
-  
+remove(indx) {
+  this.cart.cartItems.splice(indx, 1);
+}
 }
 

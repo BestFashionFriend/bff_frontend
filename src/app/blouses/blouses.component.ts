@@ -11,6 +11,7 @@ import {AuthService}from '../auth.service';
 export class BlousesComponent implements OnInit {
 
   blouses;
+  isAdded=false;
   constructor(private data:DataService,private cart:CartService,private authservice:AuthService) { }
 
    ngOnInit() {
@@ -24,6 +25,7 @@ export class BlousesComponent implements OnInit {
      var blouse = this.blouses[idx];
    //this.cart.cartItems.push(blouse);
    this.cart.sendCartItems(blouse);
+   this.isAdded=true;
    alert('added one item');
 
     }
