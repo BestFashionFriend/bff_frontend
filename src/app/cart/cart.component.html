@@ -41,8 +41,31 @@
         <div class="col-md-4">
             <div class="card">
                 <h3 style="text-align: center;">Order Summary</h3>
+                <div class="price"  >
+                    <table>
+                        <tr><td><p>Price({{cartItems.length}} item(s))</p></td>
+                            <td ><p>{{total}}</p></td>
+                        </tr>
+                        <tr>
+                            <td><p>Discount</p></td>
+                            <td><p>-50/-</p></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>Delivery Charges</p>
+                            </td>
+                            <td><p>+100/-</p></td>
+                        </tr>
+                        <tr>
+                            <th><p>Total Amount</p></th>
+                            <th>{{total+50}}/-</th>
+                        </tr>
+                    </table>
+                    
+                </div>
+               
             </div>
-            <button class="btn btn-success" (click)="totalamount()" style="font-size: 10px;">PlaceOrder</button>
+            <button class="btn btn-success" (click)="checkOut()" style="font-size: 10px;">PlaceOrder</button>
 
         </div>
     </div>
