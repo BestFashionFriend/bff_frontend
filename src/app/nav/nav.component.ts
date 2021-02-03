@@ -10,9 +10,7 @@ import { CartService } from '../cart.service';
 export class NavComponent implements OnInit {
 
   constructor(public authservice:AuthService,private cart: CartService) { }
-cartItems;
   ngOnInit(): void {
-    this.cartItems=this.cart.cartItems;
   }
 
 }

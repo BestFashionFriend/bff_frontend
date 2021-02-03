@@ -22,7 +22,7 @@ bottoms;
     if(this.authservice.isAuthenticated)
     {
     var bottom = this.bottoms[idx];
-  this.cart.cartItems.push(bottom);
+  this.cart.sendCartItems(bottom);
   alert('added one item');
     }
     else
