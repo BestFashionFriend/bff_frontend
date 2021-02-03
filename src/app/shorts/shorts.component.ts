@@ -22,7 +22,7 @@ shorts;
     if(this.authservice.isAuthenticated)
     {
     var mshorts = this.shorts[idx];
-  this.cart.cartItems.push(mshorts);
+  this.cart.sendCartItems(mshorts);
   alert('added one item');
     }
     else

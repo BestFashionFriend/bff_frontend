@@ -22,7 +22,7 @@ export class TraditionalComponent implements OnInit {
     if(this.authservice.isAuthenticated)
 {    
     var t = this.traditionalwear[idx];
-  this.cart.cartItems.push(t);
+  this.cart.sendCartItems(t);
   alert('added one time');
 }
 else

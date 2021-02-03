@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -42,7 +43,7 @@ export class AuthService {
     localStorage.setItem('username', this.Username);
     this.http.post<any>(this.path + '/login', loginData).subscribe((res: { token: string }) => {
       alert('Login Success');
-      localStorage.setItem('token', res.token)
+      localStorage.setItem('token', res.token);
     }),
       (error) => {
         alert('Invalid Username or password');
@@ -65,7 +66,7 @@ export class AuthService {
       this.id = d;
        console.log(`id in sendItems`+this.id);
       this.http.post<any>(this.path + `/carts/${this.id}`, item).subscribe((res) => {
-        alert('Item added in DB');
+        //alert('Item added in DB');
       }),
         (error) => {
           alert('Items did not get added');
