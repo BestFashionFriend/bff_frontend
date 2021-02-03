@@ -21,7 +21,7 @@ export class BottomwearComponent implements OnInit {
     if(this.authservice.isAuthenticated)
     {
     var wbottom = this.bottomwear[idx];
-  this.cart.cartItems.push(wbottom);
+  this.cart.sendCartItems(wbottom);
   alert('added one item');
     }
     else

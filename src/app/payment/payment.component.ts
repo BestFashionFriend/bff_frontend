@@ -2,6 +2,7 @@ import { Component, OnInit,ViewChild} from '@angular/core';
 import { FormGroup, FormBuilder, Validators,ReactiveFormsModule } from '@angular/forms';
 import { CartService } from '../cart.service';
 import { StripeService, StripeCardComponent } from 'ngx-stripe';
+import {Router} from '@angular/router';
 import {
   StripeCardElementOptions,
   StripeElementsOptions
@@ -48,7 +49,7 @@ elementsOptions: StripeElementsOptions = {
 
 stripeTest: FormGroup;
 
-constructor(private http : HttpClient,private fb: FormBuilder, private stripeService: StripeService,private cart:CartService ) {}
+constructor(private http : HttpClient,private fb: FormBuilder, private stripeService: StripeService,private cart:CartService,private router:Router ) {}
 cartItems=[];
 total=0;
 i;
@@ -61,6 +62,7 @@ ngOnInit(): void {
   {
     this.total =this.total+this.cartItems[this.i].price;
   }
+  this.total=this.total+50;
 }
 
 createToken(): void {
@@ -70,15 +72,16 @@ createToken(): void {
     .subscribe((result) => {
       if (result.token) {
         // Use the token
-        console.log(result.token.id);
-        
-      
+        console.log(result.token.id);       
+  
 this.http.post(`http://localhost:3000/payme/${this.total}`,{
   token : result.token.id
 }).subscribe(
 (res)=>{
   console.log("The response from server is ",res);
-  console.log('Payment Done')
+  alert('Payment Done');
+  this.router.navigate(['']);
+
 },
 (err)=>{
   console.log('The error is ',err)

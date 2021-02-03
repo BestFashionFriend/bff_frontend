@@ -40,6 +40,7 @@ manuFiledata:any={};
   }
 
 remove(indx) {
+  
     this.cart.cartItems.splice(indx, 1);
   }
   checkOut() {

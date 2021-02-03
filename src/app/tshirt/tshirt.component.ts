@@ -21,7 +21,7 @@ export class TshirtComponent implements OnInit {
     if(this.authservice.isAuthenticated)
     {
     var ts = this.tshirt[idx];
-  this.cart.cartItems.push(ts);
+  this.cart.sendCartItems(ts);
   alert('added one item');
     }
     else

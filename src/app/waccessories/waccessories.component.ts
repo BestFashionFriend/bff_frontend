@@ -22,7 +22,7 @@ export class WaccessoriesComponent implements OnInit {
     if(this.authservice.isAuthenticated)
     {
     var wa = this.womenaccessories[idx];
-  this.cart.cartItems.push(wa);
+  this.cart.sendCartItems(wa);
   alert('added one item');
     }
     else
