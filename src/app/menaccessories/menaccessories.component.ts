@@ -21,7 +21,7 @@ menaccessories
     if(this.authservice.isAuthenticated)
     {
     var ma = this.menaccessories[idx];
-  this.cart.cartItems.push(ma);
+  this.cart.sendCartItems(ma);
   alert('added one item');
     }
     else
