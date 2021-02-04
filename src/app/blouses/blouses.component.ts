@@ -12,6 +12,8 @@ export class BlousesComponent implements OnInit {
 
   blouses;
   isAdded = false;
+
+  checkValue:boolean[] = new Array(20).fill(true);
   constructor(private data: DataService, private cart: CartService, private authservice: AuthService) { }
 
   ngOnInit() {

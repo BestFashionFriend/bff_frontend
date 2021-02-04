@@ -2,6 +2,7 @@ import { Component, OnInit,ViewChild} from '@angular/core';
 import { FormGroup, FormBuilder, Validators,ReactiveFormsModule } from '@angular/forms';
 import { CartService } from '../cart.service';
 import { StripeService, StripeCardComponent } from 'ngx-stripe';
+import { AuthService } from '../auth.service';
 import {Router} from '@angular/router';
 import {
   StripeCardElementOptions,
@@ -14,6 +15,7 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./payment.component.css']
 })
 export class PaymentComponent implements OnInit {
+  data: any = {};
   step = 0;
 
   setStep(index: number) {
@@ -49,7 +51,7 @@ elementsOptions: StripeElementsOptions = {
 
 stripeTest: FormGroup;
 
-constructor(private http : HttpClient,private fb: FormBuilder, private stripeService: StripeService,private cart:CartService,private router:Router ) {}
+constructor(private http : HttpClient,private fb: FormBuilder, private stripeService: StripeService,private cart:CartService,private router:Router , private auth:AuthService) {}
 cartItems=[];
 total=0;
 i;
@@ -81,20 +83,26 @@ this.http.post(`http://localhost:3000/payme/${this.total}`,{
   console.log("The response from server is ",res);
   alert('Payment Done');
   this.router.navigate(['']);
-
 },
 (err)=>{
   console.log('The error is ',err)
-})
-      
-}  
-      
+}); }   
       else {
         // Error creating the token
         console.log(result.error.message);
       }
     });
 }
+
+Checkout()
+{
+  if(this.auth.isAuthenticated)
+  {
+    this.auth
+  }
+}
+
+
 
 }
 

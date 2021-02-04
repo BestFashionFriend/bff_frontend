@@ -14,7 +14,7 @@
       <div class="form-group"></div>
       <label for="phno">Mobile no</label>
       <div class="col-lg-4">
-        <input type="text" class="form-control">
+        <input [ngModel]="data.mobileNo"type="text" class="form-control">
       </div>
     </form>
     <mat-action-row>
@@ -153,7 +153,7 @@
         <ngx-stripe-card [options]="cardOptions" [elementsOptions]="elementsOptions"></ngx-stripe-card>
       </div>
       <div class="col-lg-4">
-        <button class="btn btn-success" type="submit">
+        <button class="btn btn-success" type="submit" (click)="Checkout()">
           BUY
         </button>
       </div>
