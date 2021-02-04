@@ -8,6 +8,7 @@ export class DataService {
   
   // serverUrl= 'https://bestfashionfriend.herokuapp.com';
 serverUrl='http://localhost:3000'
+
   constructor(private http: HttpClient) { }
   // google(){
   //   return this.http.get(this.serverUrl+'/google');

@@ -18,7 +18,10 @@
                 <span  class="card-text"><b> &#x20b9;{{b.price}}/-</b></span>
             <!-- <i class="far fa-heart" style="float:right"></i>     -->
             </div>
-            <button style="width: 100%;"  class="btn btn-warning" (click)="addItem(i)">Add to Cart &nbsp;<i class="fas fa-shopping-cart"></i></button>
+            <button style="width: 100%;"  class={{changecolor[i]}} (click)="addItem(i)" *ngIf="changecolor">
+                {{clickvalue[i]?"Add to Cart":"Go to Cart"}}
+                &nbsp;<i class="fas fa-shopping-cart"></i></button>
+                
 
         </div>
     </div>

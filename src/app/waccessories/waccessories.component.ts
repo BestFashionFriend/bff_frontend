@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
 import { CartService } from '../cart.service';
 import {AuthService}from '../auth.service';
-
+import {Router} from '@angular/router'
 @Component({
   selector: 'app-waccessories',
   templateUrl: './waccessories.component.html',
@@ -11,7 +11,7 @@ import {AuthService}from '../auth.service';
 export class WaccessoriesComponent implements OnInit {
 
   womenaccessories;
-  constructor(private data:DataService,private cart:CartService,private authservice:AuthService) { }
+  constructor(private data:DataService,private cart:CartService,private authservice:AuthService,private router:Router) { }
 
   ngOnInit(): void {
     this.data.getWomenaccessories().subscribe(d=>{
@@ -25,7 +25,11 @@ export class WaccessoriesComponent implements OnInit {
   this.cart.sendCartItems(wa);
   alert('added one item');
     }
-    else
+    else{
     alert('Login to add');
+    this.router.navigate(['../login']);
+
+    }
+
 }
 }
