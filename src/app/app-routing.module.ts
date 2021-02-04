@@ -17,6 +17,7 @@ import { SignupComponent } from './signup/signup.component';
 import { ProfileComponent } from './profile/profile.component';
 import { CartComponent } from './cart/cart.component';
 import { PaymentComponent } from './payment/payment.component';
+import { GoogleComponent } from './google/google.component';
 
 const routes: Routes = [
   {path:'',component:HomeComponent},
@@ -35,8 +36,8 @@ const routes: Routes = [
   {path:'login',component:LoginComponent},
   {path:'profile',component:ProfileComponent},
   {path:'cart',component:CartComponent},
-  {path:'payment',component:PaymentComponent}
-
+  {path:'payment',component:PaymentComponent},
+  {path:'google',component:GoogleComponent}
 ];
 
 @NgModule({
