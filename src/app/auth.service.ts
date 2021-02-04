@@ -73,6 +73,20 @@ export class AuthService {
         }
     })
   }
+
+  deleteItems(name)
+  {
+    console.log('front end hey');
+    this.http.delete<any>(this.path + `/delete/${name}`)  .subscribe({
+      next: data => {
+          console.log( 'Delete successful');
+      },
+      error: error => {
+        console.log( 'error');
+      }
+  });
+  }
+
   getItems(id) {
     console.log(`id in getItems` + id);
     return this.http.get<any>(this.path + `/cart/${id}`)
