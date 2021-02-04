@@ -11,6 +11,8 @@ import {Router} from '@angular/router'
 })
 export class ShortsComponent implements OnInit {
 shorts;
+clickvalue:boolean[]= new Array(20).fill(true)
+  changecolor:string[]=new Array(20).fill("btn btn-warning")
   constructor(private data:DataService,private cart:CartService,private authservice :AuthService,private router:Router) { }
 
   ngOnInit(): void {
@@ -21,9 +23,16 @@ shorts;
   addItem(idx){
     if(this.authservice.isAuthenticated)
     {
+      if(this.clickvalue[idx]==false)
+        this.router.navigate(['../cart'])
+
+      else{
     var mshorts = this.shorts[idx];
   this.cart.sendCartItems(mshorts);
   alert('added one item');
+  this.clickvalue[idx]=false;
+      this.changecolor[idx]="btn btn-success"
+      }
     }
     else{
     alert('Login to add');
