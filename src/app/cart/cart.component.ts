@@ -13,6 +13,7 @@ export class CartComponent implements OnInit {
  
   constructor(private cart: CartService,private data: DataService,private auth: AuthService,private route:Router) { }
 cartItems=[];
+name;
 sum;
 id;
 manuFiledata:any={};
@@ -40,8 +41,9 @@ manuFiledata:any={};
   }
 
 remove(indx) {
-  
-    this.cart.cartItems.splice(indx, 1);
+    this.name=this.cartItems[indx].name;
+    this.cartItems.splice(indx, 1);
+    this.auth.deleteItems(this.name);
   }
   checkOut() {
     this.cart.cartItems=this.cartItems;
