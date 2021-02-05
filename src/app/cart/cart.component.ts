@@ -34,10 +34,7 @@ manuFiledata:any={};
         }
       
       });
-    });
-
-   
-     
+    });   
   }
 
 remove(indx) {

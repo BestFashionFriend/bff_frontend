@@ -15,7 +15,6 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./payment.component.css']
 })
 export class PaymentComponent implements OnInit {
-
   step = 0;
   manudata: any = {}
 
@@ -96,11 +95,10 @@ export class PaymentComponent implements OnInit {
             (res) => {
               console.log("The response from server is ", res);
               alert('Payment Done');   
-              
-             
               console.log("manudata"+this.manudata);
               this.auth.checkoutItems(this.manudata);
-              this.router.navigate(['']);
+              this.router.navigate(['/profile']);
+
             },
             (err) => {
               console.log('The error is ', err)
@@ -112,6 +110,10 @@ export class PaymentComponent implements OnInit {
         }
       });
   }
+
+
+
+
 
 }
 
