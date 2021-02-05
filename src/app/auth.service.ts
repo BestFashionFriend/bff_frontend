@@ -79,6 +79,8 @@ export class AuthService {
   checkoutItems(item) {
     this.getId().subscribe(d => {
       this.id = d;
+      item.email = this.getUserName;
+       console.log(` checkoutItems`+item);
       // console.log(` checkoutItems`+item);
       this.http.post<any>(this.path + `/checkouts/${this.id}`, item).subscribe((res) => {
         //alert('Item added in DB');

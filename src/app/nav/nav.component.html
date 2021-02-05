@@ -68,10 +68,12 @@
             <img src="../../favicon.ico" style="border-radius: 50%;" height="30" width="30">
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="mail" *ngIf="authservice.isAuthenticated" data-toggle="collapse" data-target=".navbar-collapse.show" ><p>{{authservice.getUserName}}</p></a>
             <a class="dropdown-item" *ngIf="authservice.isAuthenticated" data-toggle="collapse" data-target=".navbar-collapse.show" routerLink="profile">Profile</a>
             <a class="dropdown-item btn btn-primary" *ngIf="authservice.isAuthenticated" data-toggle="collapse" data-target=".navbar-collapse.show" (click)="authservice.logout()">Logout</a>
           </div>
         </li>
+        
 
       </ul>
     </div>

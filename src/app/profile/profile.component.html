@@ -7,7 +7,7 @@
                 Order: {{i+1}}
             </mat-panel-title>
             <mat-panel-description>
-                {{c.date}}
+                  <p style="margin-left: 60%;font-weight: 100;color: black;">{{c.date}}</p>
             </mat-panel-description>
         </mat-expansion-panel-header>
         <div class="container-fluid">
@@ -19,7 +19,7 @@
                     </div>
                 </div>
                 <div class="col-md-8">
-                    <h2 class="text-success lg">Order Details</h2>
+                    <h3 class="text-success">Order Details</h3>
                     <h4>Amount: {{c.amount}} /-</h4>
                     <h4>Mobile No: {{c.phoneNo}}</h4>
                     <h4>Address: {{c.address}} {{c.locality}} {{c.city}} {{c.state}} {{c.pincode}}</h4>
