@@ -74,6 +74,19 @@ export class AuthService {
         }
     })
   }
+  
+  checkoutItems(item) {
+    this.getId().subscribe(d => {
+      this.id = d;
+       console.log(` checkoutItems`+item);
+      this.http.post<any>(this.path + `/checkouts/${this.id}`, item).subscribe((res) => {
+        //alert('Item added in DB');
+      }),
+        (error) => {
+          alert('Items did not get added');
+        }
+    })
+  }
 
   deleteItems(name)
   {
