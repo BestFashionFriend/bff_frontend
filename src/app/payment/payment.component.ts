@@ -94,13 +94,7 @@ this.http.post(`http://localhost:3000/payme/${this.total}`,{
     });
 }
 
-Checkout()
-{
-  if(this.auth.isAuthenticated)
-  {
-    this.auth
-  }
-}
+
 
 
 

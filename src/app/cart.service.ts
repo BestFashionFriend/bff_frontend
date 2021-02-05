@@ -16,5 +16,10 @@ export class CartService {
     this.cartItems.push(item);
     this.authservice.sendItems(item);
   }
+
+  deleteItems()
+  {
+    
+  }
  
 }

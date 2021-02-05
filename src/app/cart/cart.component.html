@@ -40,47 +40,52 @@
         </div>
         <div class="col-md-4">
             <div class="container">
-                <div class="row">
-                    <div class="col-md-6">
-                        <span class="list">Price({{cartItems.length}} item(s))</span>
-                    </div>
-                    <div class="col-md-6">
-                        <span class="list">{{total}}</span>
-                    </div>
-                    <br>
-                    <br>
-                    <div class="col-md-6">
-                        <span class="list">Discount</span>
-                    </div>
-                    <div class="col-md-6">
-                        <span class="list">(-)50/-</span>
-                    </div>
-                    <br>
-                    <br>
-                    <div class="col-md-6">
-                        <span class="list">Delivery Charges</span>
-                    </div>
-                    <div class="col-md-6">
-                        <span class="list">(+)100/-</span>
-                    </div>
-                    <br>
-                    <br>
-                    <div class="col-md-6">
-                        <span class="list"><b>Total Payable</b></span>
-                    </div>
-                    <div class="col-md-6">
-                        <span class="list"><b>{{total+50}}/-</b></span>
-                    </div>
-                    <br>
-                    <br>
-                    <br>
-                    <div class="col-md-12">
-                        <button class="btn btn-success" (click)="checkOut()" tyle="font-size: 10px;">Place Order <i class="fas fa-shopping-basket"></i></button>
+                <div class="card p-4 md-3" id="order">
+                    <div class="card-block text-center">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <span class="list">Price({{cartItems.length}} item(s))</span>
+                            </div>
+                            <div class="col-md-6">
+                                <span class="list">{{total}}</span>
+                            </div>
+                            <br>
+                            <br>
+                            <div class="col-md-6">
+                                <span class="list">Discount</span>
+                            </div>
+                            <div class="col-md-6">
+                                <span class="list">(-)50/-</span>
+                            </div>
+                            <br>
+                            <br>
+                            <div class="col-md-6">
+                                <span class="list">Delivery Charges</span>
+                            </div>
+                            <div class="col-md-6">
+                                <span class="list">(+)100/-</span>
+                            </div>
+                            <br>
+                            <br>
+                            <div class="col-md-6">
+                                <span class="list"><b>Total Payable</b></span>
+                            </div>
+                            <div class="col-md-6">
+                                <span class="list"><b>{{total+50}}/-</b></span>
+                            </div>
+                            <br>
+                            <br>
+                            <br>
+                            <div class="col-md-12">
+                                <button class="btn btn-success" (click)="checkOut()" tyle="font-size: 10px;">Place Order
+                                    <i class="fas fa-shopping-basket"></i></button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            
+
 
         </div>
     </div>
