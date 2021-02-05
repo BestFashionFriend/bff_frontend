@@ -1,5 +1,4 @@
 <mat-accordion class="example-headers-align">
-  
   <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" hideToggle>
     <mat-expansion-panel-header>
       <mat-panel-title>
@@ -11,11 +10,11 @@
       </mat-panel-description>
     </mat-expansion-panel-header>
 
-    <form name="myform" class="form-group">
+    <form>
       <div class="form-group"></div>
       <label for="phno">Mobile no</label>
       <div class="col-lg-4">
-        <input [(ngModel)]="manudata.phoneNo" name="phoneNo" type="text" class="form-control">
+        <input type="text" class="form-control">
       </div>
     </form>
     <mat-action-row>
@@ -34,20 +33,20 @@
       </mat-panel-description>
     </mat-expansion-panel-header>
     <div class="col-lg-4">
-      <form name="myform" class="form-group">
-        <label  for="address">Address</label>
+      <form>
+        <label for="address">Address</label>
 
-        <textarea class="form-control" [(ngModel)]="manudata.address" name="address" id="exampleFormControlTextarea1" rows="3"></textarea>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
         <label for="locality">Locality</label>
-        <input type="text" [(ngModel)]="manudata.locality" name="locality" class="form-control">
+        <input type="text" class="form-control">
         <label for="pincode">Pincode</label>
-        <input type="text" [(ngModel)]="manudata.pincode" name="pincode"class="form-control">
+        <input type="text" class="form-control">
         <label for="City/District/Town">City/District/Town</label>
-        <input type="text" [(ngModel)]="manudata.city" name="city" class="form-control">
+        <input type="text" class="form-control">
         <label for="landmark">Landmark</label>
-        <input type="text" [(ngModel)]="manudata.landmark" name="landmark" class="form-control">
+        <input type="text" class="form-control">
         <label for="state">State</label>
-        <input type="text" [(ngModel)]="manudata.state" name="state" class="form-control">
+        <input type="text" class="form-control">
       </form>
     </div>
     <mat-action-row>
