@@ -65,8 +65,8 @@ export class AuthService {
   sendItems(item) {
     this.getId().subscribe(d => {
       this.id = d;
-       console.log(`id in sendItems`+this.id);
-       console.log(item)
+     //  console.log(`id in sendItems`+this.id);
+      // console.log(item)
       this.http.post<any>(this.path + `/carts/${this.id}`, item).subscribe((res) => {
         //alert('Item added in DB');
       }),
@@ -79,10 +79,10 @@ export class AuthService {
   checkoutItems(item) {
     this.getId().subscribe(d => {
       this.id = d;
-       console.log(` checkoutItems`+item);
+      // console.log(` checkoutItems`+item);
       this.http.post<any>(this.path + `/checkouts/${this.id}`, item).subscribe((res) => {
         //alert('Item added in DB');
-        this.deleteChecckoutItems();
+        
 
       }),
         (error) => {
@@ -95,7 +95,7 @@ export class AuthService {
     this.getId().subscribe(d => {
       this.id = d;
        console.log(`id in sendItems`+this.id);
-       console.log(item)
+      // console.log(item)
       this.http.post<any>(this.path + `/checkouts/${this.id}`, item).subscribe((res) => {
         //alert('Item added in DB');
       }),
@@ -116,9 +116,9 @@ export class AuthService {
       }
   });
   }
-  deleteChecckoutItems()
+  deleteCheckoutItems()
   {
-    console.log('front end hey');
+    console.log('delete cart items');
     this.http.delete<any>(this.path + `/delcheckout/${this.id}`)  .subscribe({
       next: data => {
           console.log( 'Delete successful');
