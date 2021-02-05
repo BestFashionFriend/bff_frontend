@@ -95,8 +95,9 @@ export class PaymentComponent implements OnInit {
             (res) => {
               console.log("The response from server is ", res);
               alert('Payment Done');   
-              console.log("manudata"+this.manudata);
+          //    console.log("manudata"+this.manudata);
               this.auth.checkoutItems(this.manudata);
+              this.auth.deleteCheckoutItems();
               this.router.navigate(['/profile']);
 
             },
