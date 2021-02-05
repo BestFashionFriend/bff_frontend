@@ -25,7 +25,7 @@ this.auth.getId().subscribe(d => {
  console.log(`id in cart`+this.id);
   this.auth.getOrderItems(this.id).subscribe(d => {
     this.data = d;
-    console.log(`order data `+(this.data));
+   // console.log(`order data `+(this.data));
     this.cartItems=(JSON.parse(this.data));
     for(this.i=0;this.i<this.cartItems.length;this.i++)
     {
