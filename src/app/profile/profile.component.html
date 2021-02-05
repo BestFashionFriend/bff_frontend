@@ -1,6 +1,30 @@
-<div class="container">
-    <p style="align-items: center;">Account Information</p>
-    <H4>Welcome {{userName}}</H4>
-    <h4>Shiiping Address</h4>
-</div>
+<mat-accordion>
 
+    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false"
+        *ngFor="let c of cartItems;let i=index">
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                Order: {{i+1}}
+            </mat-panel-title>
+            <mat-panel-description>
+                {{c.date}}
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="image">
+                        <img src="https://res.cloudinary.com/dvj9jchje/image/upload/v1612536785/order_szvw9a.jpg"
+                            height="150" width="150" />
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <h2 class="text-success lg">Order Details</h2>
+                    <h4>Amount: {{c.amount}} /-</h4>
+                    <h4>Mobile No: {{c.phoneNo}}</h4>
+                    <h4>Address: {{c.address}} {{c.locality}} {{c.city}} {{c.state}} {{c.pincode}}</h4>
+                </div>
+            </div>
+        </div>
+    </mat-expansion-panel>
+</mat-accordion>

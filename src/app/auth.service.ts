@@ -75,6 +75,21 @@ export class AuthService {
         }
     })
   }
+  
+  checkoutItems(item) {
+    this.getId().subscribe(d => {
+      this.id = d;
+       console.log(` checkoutItems`+item);
+      this.http.post<any>(this.path + `/checkouts/${this.id}`, item).subscribe((res) => {
+        //alert('Item added in DB');
+        this.deleteChecckoutItems();
+
+      }),
+        (error) => {
+          alert('Items did not get added');
+        }
+    })
+  }
 
   sendOrderItems(item) {
     this.getId().subscribe(d => {
@@ -101,12 +116,27 @@ export class AuthService {
       }
   });
   }
-
+  deleteChecckoutItems()
+  {
+    console.log('front end hey');
+    this.http.delete<any>(this.path + `/delcheckout/${this.id}`)  .subscribe({
+      next: data => {
+          console.log( 'Delete successful');
+      },
+      error: error => {
+        console.log( 'error');
+      }
+  });
+  }
   getItems(id) {
     console.log(`id in getItems` + id);
     return this.http.get<any>(this.path + `/cart/${id}`)
   }
-
+  getOrderItems(id)
+  {
+    console.log(`id in getOrderItems` + id);
+    return this.http.get<any>(this.path + `/checkouts/${id}`)
+  }
   getgoogle(){
     return this.http.get<any>(this.path + '/google')
     .subscribe(res => {
