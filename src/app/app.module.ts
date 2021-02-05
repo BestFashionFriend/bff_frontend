@@ -37,6 +37,7 @@ import { PaymentComponent } from './payment/payment.component';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatButtonModule} from '@angular/material/button';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import { GoogleComponent } from './google/google.component';
 
 @NgModule({
   declarations: [
@@ -61,7 +62,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     SignupComponent,
     ProfileComponent,
     CartComponent,
-    PaymentComponent
+    PaymentComponent,
+    GoogleComponent
   ],
   imports: [
     BrowserModule,

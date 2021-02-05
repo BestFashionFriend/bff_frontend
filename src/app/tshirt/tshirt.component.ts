@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
 import { CartService } from '../cart.service';
 import {AuthService}from '../auth.service';
-
+import {Router} from '@angular/router'
 @Component({
   selector: 'app-tshirt',
   templateUrl: './tshirt.component.html',
@@ -10,7 +10,9 @@ import {AuthService}from '../auth.service';
 })
 export class TshirtComponent implements OnInit {
   tshirt;
-  constructor(private data:DataService, private cart:CartService,private authservice:AuthService) { }
+  clickvalue:boolean[]= new Array(20).fill(true)
+  changecolor:string[]=new Array(20).fill("btn btn-warning")
+  constructor(private data:DataService, private cart:CartService,private authservice:AuthService,private router:Router) { }
 
   ngOnInit(): void {
     this.data.getTshirt().subscribe(d=>{
@@ -20,12 +22,22 @@ export class TshirtComponent implements OnInit {
   addItem(idx){
     if(this.authservice.isAuthenticated)
     {
+      if(this.clickvalue[idx]==false)
+        this.router.navigate(['../cart'])
+
+      else{
     var ts = this.tshirt[idx];
   this.cart.sendCartItems(ts);
   alert('added one item');
+  this.clickvalue[idx]=false;
+      this.changecolor[idx]="btn btn-success"
+      }
     }
-    else
+    else{
     alert('Login to add');
+    this.router.navigate(['../login']);
+    }
+
 }
 
 }
