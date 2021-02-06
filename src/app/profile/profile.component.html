@@ -1,3 +1,10 @@
+<div class="container text-center" *ngIf="cartItems.length == 0">
+    <h2 style="color: hotpink;">Welcome to your Profile</h2>
+    <i class="fas fa-shopping-cart"style="font-size: 10em;margin-top: 1em;"></i>
+    <h2 style="color: hotpink;"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;No Orders Yet!</h2>
+    <h4 style="color: hotpink;">&nbsp;&nbsp;Browse your Favourite Fashion Collection</h4>
+    <a routerLink="" style="background-color: pink; color: black;" class="btn btn-outline mt-2">Continue Browsing</a>
+</div>
 <mat-accordion>
 
     <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false"

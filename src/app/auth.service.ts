@@ -10,8 +10,8 @@ export class AuthService {
   Username = 'username';
   id: any;
 
-  //path= 'https://bestfashionfriend.herokuapp.com';
-  path = 'http://localhost:3000'
+  path= 'https://bestfashionfriend.herokuapp.com';
+  //path = 'http://localhost:3000'
   TOKEN_KEY = 'token'
 
   constructor(private http: HttpClient, private router: Router) { }
@@ -32,11 +32,14 @@ export class AuthService {
   sendRegistrationData(registerData) {
     this.http.post<any>(this.path + '/register', (registerData)).subscribe(res => {
       alert('Registration Success');
-    }),
+      this.router.navigate(['/login']);
+    },
     (error) => {
-      alert('Registration Failed');
-      this.router.navigate(['/register']);
-    }
+      alert('User Already Exists!');
+      this.router.navigate(['/login']);
+     
+      
+    });
   }
 
   loginuserData(loginData) {
@@ -45,11 +48,11 @@ export class AuthService {
     this.http.post<any>(this.path + '/login', loginData).subscribe((res: { token: string }) => {
       alert('Login Success');
       localStorage.setItem('token', res.token);
-    }),
+    },
       (error) => {
         alert('Invalid Username or password');
         this.router.navigate(['/login']);
-      }
+      });
   }
 
   get getUserName() {
@@ -96,7 +99,7 @@ export class AuthService {
   sendOrderItems(item) {
     this.getId().subscribe(d => {
       this.id = d;
-       console.log(`id in sendItems`+this.id);
+      // console.log(`id in sendItems`+this.id);
       // console.log(item)
       this.http.post<any>(this.path + `/checkouts/${this.id}`, item).subscribe((res) => {
         //alert('Item added in DB');
@@ -108,7 +111,7 @@ export class AuthService {
   }
   deleteItems(name)
   {
-    console.log('front end hey');
+   // console.log('front end hey');
     this.http.delete<any>(this.path + `/delete/${name}`)  .subscribe({
       next: data => {
           console.log( 'Delete successful');
@@ -120,7 +123,7 @@ export class AuthService {
   }
   deleteCheckoutItems()
   {
-    console.log('delete cart items');
+    //console.log('delete cart items');
     this.http.delete<any>(this.path + `/delcheckout/${this.id}`)  .subscribe({
       next: data => {
           console.log( 'Delete successful');
@@ -131,12 +134,12 @@ export class AuthService {
   });
   }
   getItems(id) {
-    console.log(`id in getItems` + id);
+    //console.log(`id in getItems` + id);
     return this.http.get<any>(this.path + `/cart/${id}`)
   }
   getOrderItems(id)
   {
-    console.log(`id in getOrderItems` + id);
+   // console.log(`id in getOrderItems` + id);
     return this.http.get<any>(this.path + `/checkouts/${id}`)
   }
   getgoogle(){

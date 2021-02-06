@@ -57,7 +57,7 @@ remove(indx) {
       total =total+this.cartItems[i].price;
     }
     //total=total+55;
-    console.log(total);
+    //console.log(total);
   }
   
 

@@ -22,7 +22,7 @@ panelOpenState = false;
 this.userName=this.auth.getUserName;
 this.auth.getId().subscribe(d => {
   this.id=d;
- console.log(`id in cart`+this.id);
+ //console.log(`id in cart`+this.id);
   this.auth.getOrderItems(this.id).subscribe(d => {
     this.data = d;
    // console.log(`order data `+(this.data));

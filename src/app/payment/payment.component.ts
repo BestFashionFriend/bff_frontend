@@ -80,16 +80,18 @@ export class PaymentComponent implements OnInit {
     
    
   }
-
+  path= 'https://bestfashionfriend.herokuapp.com';
+   //path='http://localhost:3000'
   createToken(): void {
+
     const name = this.stripeTest.get('name').value;
     this.stripeService
       .createToken(this.card.element, { name })
       .subscribe((result) => {
         if (result.token) {
           // Use the token
-          console.log(result.token.id);
-          this.http.post(`http://localhost:3000/payme/${this.total}`, {
+         // console.log(result.token.id);
+          this.http.post(this.path + `/payme/${this.total}`, {
             token: result.token.id
           }).subscribe(
             (res) => {
